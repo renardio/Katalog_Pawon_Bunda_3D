@@ -1,0 +1,671 @@
+/* ==========================================================================
+   [NOTE] BAGIAN CSS: Pengaturan warna, ukuran teks, dan tata letak visual
+   ========================================================================== */
+:root {
+  /* [NOTE] Variabel warna utama. Ubah kode hex (#...) jika ingin mengganti warna tema website */
+  --hijau: #1F4D3A;
+  /* Warna hijau utama (header, footer, garis kartu) */
+  --kunyit: #E8A317;
+  /* Warna kuning aksen (lencana, lingkaran nomor) */
+  --krem: #FBF4E6;
+  /* Warna latar belakang halaman */
+  --pasir: #EFE3C8;
+  /* Warna pemisah & placeholder gambar */
+  --tinta: #2B2118;
+  /* Warna teks utama */
+  --tinta-lembut: #5E4F3F;
+  /* Warna teks sekunder (deskripsi singkat) */
+  --mawar: #1F4D3A;
+  /* Warna aksen bagian kue hias */
+  --mawar-tua: #1F4D3A;
+  --mawar-muda: #EFE3C8;
+  /* Warna latar bagian kue hias */
+  --wa: #1A7F37;
+  /* Warna hijau khusus tombol WhatsApp */
+
+  /* [NOTE] Jenis font yang digunakan */
+  --serif: Bitter, Georgia, serif;
+  --sans: "Nunito Sans", system-ui, sans-serif;
+}
+
+* {
+  box-sizing: border-box
+}
+
+html {
+  scroll-behavior: smooth
+}
+
+/* [NOTE] Membuat pergerakan layar saat diklik menjadi mulus */
+body {
+  margin: 0;
+  background: var(--krem);
+  color: var(--tinta);
+  font: 400 16px/1.6 var(--sans)
+}
+
+a {
+  color: inherit
+}
+
+:focus-visible {
+  outline: 3px solid var(--kunyit);
+  outline-offset: 2px
+}
+
+/* [NOTE] .wrap berfungsi membatasi lebar tengah konten agar tidak melebar berlebihan di layar monitor besar */
+.wrap {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 56px
+}
+
+h1,
+h2,
+h3 {
+  font-family: var(--serif);
+  color: var(--hijau);
+  margin: 0;
+  line-height: 1.15
+}
+
+h2 {
+  font-size: 30px;
+  font-weight: 800
+}
+
+h3 {
+  font-size: 20px;
+  font-weight: 600
+}
+
+/* [NOTE] CSS Header / Navigasi Atas */
+.atas {
+  background-color: var(--hijau);
+  background-image: radial-gradient(circle at 10px 10px, rgba(232, 163, 23, .25) 2px, transparent 3px);
+  background-size: 20px 20px;
+  color: var(--krem)
+}
+
+.atas .wrap {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+  padding-top: 14px;
+  padding-bottom: 14px
+}
+
+.merek {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  text-decoration: none
+}
+
+.merek svg {
+  width: 48px;
+  height: 48px;
+  flex: none
+}
+
+.merek b {
+  font: 800 24px/1 var(--serif)
+}
+
+.merek span {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--kunyit);
+  color: var(--tinta);
+  border-radius: 999px;
+  font: 800 15px var(--serif);
+  padding: 4px 10px;
+  margin-left: 6px
+}
+
+.menu-atas {
+  display: flex;
+  align-items: center;
+  gap: 28px
+}
+
+.menu-atas a {
+  text-decoration: none;
+  font-weight: 700
+}
+
+.menu-atas a:hover {
+  color: var(--kunyit)
+}
+
+/* [NOTE] CSS Desain Tombol (Button) */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  gap: 8px;
+  min-height: 44px;
+  padding: 10px 20px;
+  border-radius: 999px;
+  border: 0;
+  font: 700 15px var(--sans);
+  text-decoration: none;
+  cursor: pointer
+}
+
+.btn-wa {
+  background: var(--wa);
+  color: #fff
+}
+
+/* Tombol WA Hijau */
+.btn-wa:hover {
+  background: #146229
+}
+
+.btn-hijau {
+  background: var(--hijau);
+  color: var(--krem)
+}
+
+.btn-hijau:hover {
+  background: #163a2b
+}
+
+.btn-mawar {
+  background: var(--mawar);
+  color: #fff
+}
+
+.btn-mawar:hover {
+  background: #163a2b
+}
+
+/* [NOTE] CSS Spanduk Utama (Hero Section) */
+.hero .wrap {
+  display: grid;
+  grid-template-columns: 1.1fr 1fr;
+  gap: 56px;
+  align-items: center;
+  padding-top: 56px;
+  padding-bottom: 48px
+}
+
+.hero h1 {
+  font-size: 46px;
+  font-weight: 800
+}
+
+.hero p {
+  font-size: 18px;
+  max-width: 30em;
+  margin: 18px 0
+}
+
+.lencana {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px
+}
+
+.lencana span {
+  background: var(--krem);
+  border: 1.5px solid var(--hijau);
+  color: var(--hijau);
+  border-radius: 999px;
+  padding: 2px 10px;
+  font: 700 13px var(--sans)
+}
+
+.lencana .kuning {
+  background: var(--kunyit);
+  border-color: var(--kunyit);
+  color: var(--tinta)
+}
+
+.lencana .mawar {
+  background: var(--mawar-muda);
+  border-color: var(--mawar);
+  color: #5A3A2E
+}
+
+.aksi-hero {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+  margin-top: 22px
+}
+
+.foto {
+  background: var(--pasir);
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  color: var(--tinta-lembut);
+  font-size: 13px;
+  padding: 8px
+}
+
+.hero .foto {
+  aspect-ratio: 4/3;
+  border: 2px dashed var(--hijau);
+  font-size: 15px
+}
+
+/* [NOTE] CSS Kartu Produk / Menu Makanan */
+section {
+  scroll-margin-top: 72px
+}
+
+.bagian {
+  padding: 48px 0
+}
+
+.bagian>.wrap>p.sub {
+  margin: 8px 0 24px;
+  color: var(--tinta-lembut)
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+  margin-top: 24px
+}
+
+/* Menampilkan 3 kartu per baris di layar komputer */
+.kartu {
+  scroll-margin-top: 72px;
+  background: #fff;
+  border: 2px solid var(--hijau);
+  border-radius: 14px;
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px
+}
+
+.kartu .foto {
+  height: 170px
+}
+
+.kartu p {
+  margin: 0;
+  font-size: 14.5px;
+  color: var(--tinta-lembut)
+}
+
+.kartu .aksi {
+  display: flex;
+  gap: 8px;
+  margin-top: auto
+}
+
+.kartu .aksi .btn {
+  flex: 1
+}
+
+.btn-garis {
+  background: #fff;
+  color: var(--hijau);
+  border: 2px solid var(--hijau)
+}
+
+.btn-garis:hover {
+  background: var(--hijau);
+  color: var(--krem)
+}
+
+/* [NOTE] CSS Pop-up (Jendela Informasi Produk) */
+dialog {
+  border: 0;
+  border-radius: 16px;
+  padding: 0;
+  max-width: 520px;
+  width: calc(100% - 32px);
+  max-height: calc(100% - 48px);
+  color: var(--tinta);
+  background: var(--krem)
+}
+
+dialog::backdrop {
+  background: rgba(43, 33, 24, .55)
+}
+
+.dlg-badan {
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 14px
+}
+
+.dlg-kepala {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 12px
+}
+
+.dlg-tutup {
+  flex: none;
+  width: 44px;
+  height: 44px;
+  border: 0;
+  border-radius: 50%;
+  background: var(--pasir);
+  color: var(--tinta);
+  font: 700 24px/1 var(--sans);
+  cursor: pointer
+}
+
+.dlg-badan p {
+  margin: 0
+}
+
+.dlg-deskripsi {
+  font-weight: 600
+}
+
+.dlg-deskripsi-tambahan {
+  color: var(--tinta-lembut);
+  font-size: 14.5px;
+  line-height: 1.5;
+  margin-top: 6px
+}
+
+.foto-info {
+  display: flex;
+  width: 100%;
+  height: 220px;
+  object-fit: cover;
+  border-radius: 10px;
+  margin-bottom: 12px
+}
+
+.kartu .aksi {
+  flex-wrap: wrap
+}
+
+.kartu .aksi .btn {
+  flex: 1 1 130px
+}
+
+.paket {
+  display: grid;
+  grid-template-columns: 1.2fr 2fr auto;
+  gap: 4px 12px;
+  margin: 6px 0 4px;
+  font-size: 14px
+}
+
+.paket b {
+  font-weight: 700
+}
+
+.paket .baris-pemisah {
+  grid-column: 1/-1;
+  border-top: 1px solid var(--pasir)
+}
+
+.pilihan {
+  font-size: 13.5px;
+  margin: 8px 0 0;
+  color: var(--tinta-lembut)
+}
+
+.kartu-khusus {
+  background: var(--krem);
+  border-style: dashed;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  gap: 14px
+}
+
+.kartu-khusus p {
+  max-width: 22em
+}
+
+/* [NOTE] CSS Bagian Kue Hias */
+.hias {
+  background: var(--mawar-muda);
+  color: #5A3A2E
+}
+
+.hias h2 {
+  color: var(--mawar-tua)
+}
+
+.hias .sub {
+  color: #5A3A2E
+}
+
+.grid-hias {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 24px
+}
+
+.grid-hias .kartu {
+  border-color: var(--mawar);
+  border-radius: 18px
+}
+
+.grid-hias .kartu h3 {
+  color: var(--mawar-tua)
+}
+
+.grid-hias .kartu .foto {
+  height: 260px;
+  background: var(--mawar-muda);
+  color: var(--tinta-lembut);
+  border-radius: 12px
+}
+
+.galeri {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 12px;
+  margin-top: 12px
+}
+
+.galeri .foto {
+  height: 120px;
+  background: #fff;
+  border: 1px solid var(--pasir);
+  color: var(--tinta-lembut)
+}
+
+h3.kecil,
+.hias h3.kecil {
+  font-size: 18px;
+  color: var(--hijau);
+  margin-top: 36px;
+  margin-bottom: 8px
+}
+
+/* [NOTE] CSS Langkah Pemesanan */
+ol.langkah {
+  list-style: none;
+  margin: 20px 0 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px
+}
+
+ol.langkah li {
+  display: flex;
+  gap: 14px;
+  align-items: flex-start;
+  counter-increment: l
+}
+
+ol.langkah li::before {
+  content: counter(l);
+  flex: none;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: var(--kunyit);
+  color: var(--tinta);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font: 800 20px var(--serif)
+}
+
+ol.langkah b {
+  display: block
+}
+
+ol.langkah span {
+  font-size: 14.5px;
+  color: var(--tinta-lembut)
+}
+
+/* [NOTE] CSS Footer (Bagian Kontak & Alamat) */
+.kaki {
+  background-color: var(--hijau);
+  background-image: radial-gradient(circle at 10px 10px, rgba(232, 163, 23, .25) 2px, transparent 3px);
+  background-size: 20px 20px;
+  color: var(--krem);
+  padding: 36px 0 96px
+}
+
+.kaki .wrap {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 32px
+}
+
+.kaki b {
+  display: block;
+  margin-bottom: 4px
+}
+
+.kaki a {
+  color: var(--kunyit)
+}
+
+/* [NOTE] CSS Tombol Melayang (Floating WhatsApp) di kanan bawah */
+.wa-float {
+  position: fixed;
+  right: 16px;
+  bottom: 16px;
+  z-index: 10;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, .3)
+}
+
+/* [NOTE] CSS Responsif untuk tampilan layar smartphone dan tablet */
+@media (max-width:900px) {
+  .wrap {
+    padding: 0 20px
+  }
+
+  .menu-atas a:not(.btn) {
+    display: none
+  }
+
+  /* Sembunyikan navigasi teks di layar HP */
+  .hero .wrap {
+    grid-template-columns: 1fr;
+    gap: 24px;
+    padding-top: 28px;
+    padding-bottom: 28px
+  }
+
+  .hero h1 {
+    font-size: 30px
+  }
+
+  .hero p {
+    font-size: 16px
+  }
+
+  .grid {
+    grid-template-columns: repeat(2, 1fr)
+  }
+
+  .kaki .wrap {
+    grid-template-columns: 1fr;
+    gap: 18px
+  }
+
+  ol.langkah {
+    grid-template-columns: 1fr
+  }
+}
+
+@media (max-width:640px) {
+  .merek b {
+    font-size: 19px
+  }
+
+  .merek svg {
+    width: 40px;
+    height: 40px
+  }
+
+  .atas .btn {
+    display: none
+  }
+
+  h2 {
+    font-size: 24px
+  }
+
+  .grid {
+    grid-template-columns: 1fr;
+    gap: 12px
+  }
+
+  /* Ubah daftar menu jadi 1 kolom di HP */
+  .kartu.makanan,
+  .kartu.hias-kartu {
+    display: grid;
+    grid-template-columns: 96px 1fr;
+    gap: 6px 12px;
+    padding: 10px
+  }
+
+  .kartu.makanan .foto,
+  .kartu.hias-kartu .foto {
+    height: 96px;
+    grid-row: 1/4;
+    font-size: 11px
+  }
+
+  .kartu.makanan .aksi .btn,
+  .kartu.hias-kartu .aksi .btn {
+    min-width: 0;
+    padding: 10px 12px
+  }
+
+  .grid-hias {
+    grid-template-columns: 1fr
+  }
+
+  .grid-hias .kartu .foto {
+    height: 170px
+  }
+
+  .galeri {
+    grid-template-columns: repeat(2, 1fr)
+  }
+
+  .paket {
+    grid-template-columns: 1fr auto
+  }
+
+  .paket .isi-paket {
+    grid-column: 1/-1;
+    order: 3;
+    color: var(--tinta-lembut)
+  }
+}

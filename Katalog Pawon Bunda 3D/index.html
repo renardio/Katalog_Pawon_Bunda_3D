@@ -1,0 +1,159 @@
+<!doctype html>
+<html lang="id">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <!-- [NOTE] Ganti judul ini dengan nama toko / judul halaman yang akan tampil di tab browser -->
+  <title>Pawon Bunda 3D - Katalog Menu</title>
+  <!-- [NOTE] Ganti deskripsi ini dengan rangkuman bisnis Anda (bermanfaat untuk pencarian Google/SEO) -->
+  <meta name="description"
+    content="Katalog menu Pawon Bunda 3D: nasi kotak, rice bowl, snack, snack box, tumpeng, puding hias, dan brownies hias. Pesan lewat WhatsApp.">
+
+  <!-- [NOTE] Link penyambung jenis huruf (font) Bitter dan Nunito Sans dari Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bitter:wght@600;800&family=Nunito+Sans:wght@400;700&display=swap"
+    rel="stylesheet">
+
+  <!-- [NOTE] File CSS Eksternal: Pengaturan warna, ukuran teks, dan tata letak visual -->
+  <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+
+  <!-- ==========================================================================
+     [NOTE] BAGIAN HTML: Struktur konten yang tampil di halaman website
+     ========================================================================== -->
+
+  <!-- [NOTE] 1. HEADER (Logo dan Navigasi Atas) -->
+  <header class="atas">
+    <div class="wrap">
+      <!-- Link logo menuju bagian atas halaman (#atas) -->
+      <a class="merek" href="#atas" aria-label="Pawon Bunda 3D, ke atas halaman">
+        <!-- Gambar ikon logo (SVG) -->
+        <svg viewBox="0 0 120 120" role="img" aria-label="Logo Pawon Bunda 3D">
+          <circle cx="60" cy="60" r="56" fill="#FBF4E6" />
+          <path d="M45 40 Q41 33 45 27 M60 40 Q56 31 60 22 M75 40 Q71 33 75 27" fill="none" stroke="#E8A317"
+            stroke-width="3.5" stroke-linecap="round" />
+          <path d="M30 50 H90 Q88 74 60 76 Q32 74 30 50Z" fill="#1F4D3A" />
+          <rect x="26" y="46" width="68" height="6" rx="3" fill="#1F4D3A" />
+          <path d="M60 102 C42 92 40 80 48 79 C54 78 58 82 60 85 C62 82 66 78 72 79 C80 80 78 92 60 102Z"
+            fill="#E8A317" />
+        </svg>
+        <b>Pawon Bunda</b><span>3D</span>
+      </a>
+
+      <!-- Link navigasi untuk berpindah antar bagian -->
+      <nav class="menu-atas" aria-label="Menu utama">
+        <a href="#menu">Menu</a>
+        <a href="#cara-pesan">Cara Pesan</a>
+        <a href="#kontak">Kontak</a>
+        <a class="btn btn-wa" href="#">Chat WhatsApp</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="atas">
+    <!-- [NOTE] 2. SPANDUK UTAMA (Hero Section) -->
+    <section class="hero">
+      <div class="wrap">
+        <div>
+          <!-- EDIT: Slogan utama bisnis Anda -->
+          <h1>Katalog Pawon Bunda 3D</h1>
+          <!-- EDIT: Keterangan singkat mengenai produk/layanan Anda -->
+          <p>Menerima pesanan Nasi Kotak, Tumpeng, Snack dan lain lain yang dapat disesuaikan dengan kebutuhan anda</p>
+
+          <!-- EDIT: Informasi lencana kecil -->
+          <div class="lencana">
+            <span class="kuning">Pre-order H-4</span>
+            <span>Area antar: Ungaran</span>
+          </div>
+
+          <div class="aksi-hero">
+            <a class="btn btn-hijau" href="#menu">Lihat menu</a>
+            <a class="btn btn-wa" href="#">Tanya lewat WhatsApp</a>
+          </div>
+        </div>
+        <!-- Tempat penampung foto utama (bisa diganti dengan tag <img> nantinya) -->
+        <div class="foto" role="img" aria-label="Tempat foto utama">[Foto utama: tumpeng dan nasi kotak]</div>
+      </div>
+    </section>
+
+    <!-- [NOTE] 3. KATALOG MENU MAKANAN & KUE HIAS -->
+    <section class="bagian" id="menu" aria-labelledby="jdl-menu">
+      <!-- Target penanda jika ada tautan lama ke #makanan atau #kue-hias -->
+      <span id="makanan"></span>
+      <span id="kue-hias"></span>
+      <div class="wrap">
+        <h2 id="jdl-menu">Menu</h2>
+        <p class="sub">Pilihan menu. Ketuk "Informasi produk" untuk melihat harga dan detail. Pesan lewat WhatsApp.</p>
+        <!-- [NOTE] Elemen id="grid-menu" ini wadah yang akan diisi secara otomatis oleh JavaScript di bawah -->
+        <div class="grid" id="grid-menu"></div>
+
+        <h3 class="kecil">Hasil karya kami</h3>
+        <!-- EDIT: Tempat sampel foto galeri portofolio Anda -->
+        <div class="galeri">
+          <div class="foto">[Karya 1]</div>
+          <div class="foto">[Karya 2]</div>
+          <div class="foto">[Karya 3]</div>
+          <div class="foto">[Karya 4]</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- [NOTE] 4. LANGKAH CARA PESAN -->
+    <section class="bagian" id="cara-pesan" aria-labelledby="jdl-cara">
+      <div class="wrap">
+        <h2 id="jdl-cara">Cara pemesanan</h2>
+        <ol class="langkah">
+          <!-- EDIT: Penjelasan urutan cara pemesanan -->
+          <li>
+            <div><b>Pilih menu</b><span>Lihat paket dan harga di katalog.</span></div>
+          </li>
+          <li>
+            <div><b>Chat WhatsApp</b><span>Sebutkan jumlah, tanggal acara, dan alamat.</span></div>
+          </li>
+          <li>
+            <div><b>Konfirmasi dan bayar</b><span>Kami cek pesanan, lalu kamu bayar sesuai kesepakatan.</span></div>
+          </li>
+        </ol>
+      </div>
+    </section>
+  </main>
+
+  <!-- [NOTE] 5. FOOTER (Informasi Kontak & Alamat) -->
+  <footer class="kaki" id="kontak">
+    <div class="wrap">
+      <!-- EDIT: Isi alamat, jam buka, dan info sosial media Anda -->
+      <div><b>Alamat</b>Jl Arwana I no 5, Ungaran Timur, Kab.Semarang</div>
+      <div><b>Hubungi</b><a class="link-wa" href="#">087758311825</a>
+      </div>
+    </div>
+  </footer>
+  <!-- [NOTE] STRUKTUR POP-UP (Modal Informasi Produk) -->
+  <dialog id="dlg" aria-labelledby="dlg-judul">
+    <div class="dlg-badan">
+      <div class="dlg-kepala">
+        <h3 id="dlg-judul"></h3><button type="button" class="dlg-tutup" id="dlg-tutup"
+          aria-label="Tutup">&times;</button>
+      </div>
+      <div id="dlg-isi"></div>
+      <a class="btn btn-wa" id="dlg-wa" href="#" target="_blank" rel="noopener">Pesan via WhatsApp</a>
+    </div>
+  </dialog>
+
+
+  <!-- ==========================================================================
+     [NOTE] BAGIAN JAVASCRIPT: Logika data dan interaksi halaman
+     Dipisah berdasarkan fungsinya (Data, Utilitas, Menu, Modal, WhatsApp)
+     ========================================================================== -->
+  <script src="js/data.js"></script>
+  <script src="js/utils.js"></script>
+  <script src="js/menu.js"></script>
+  <script src="js/modal.js"></script>
+  <script src="js/whatsapp.js"></script>
+</body>
+
+</html>
