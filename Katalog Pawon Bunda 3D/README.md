@@ -24,11 +24,17 @@ Katalog Pawon Bunda 3D/
 ├── css/
 │   └── style.css                       # Semua styling, variabel warna tema, & responsif
 │
+├── img/
+│   ├── logo.webp                       # Logo di header (hijau + emas, latar transparan)
+│   ├── favicon.png                     # Ikon tab browser (lambang "B" dari logo)
+│   └── apple-touch-icon.png            # Ikon saat situs ditambahkan ke layar utama iPhone
+│
 └── js/
     ├── data.js                         # Pengaturan nomor WA & daftar menu makanan/kue
     ├── utils.js                        # Fungsi pembantu: link WhatsApp, filter teks aman, tabel
     ├── menu.js                         # Fungsi pembuat kartu menu & pengisi grid menu (makanan & kue hias)
     ├── modal.js                        # Logika jendela pop-up detail produk (buka/tutup)
+    ├── navbar.js                       # Logika hamburger menu & dropdown navigasi mobile
     └── whatsapp.js                     # Inisialisasi otomatis semua tombol chat WhatsApp
 ```
 
@@ -83,16 +89,24 @@ Buka file: **`css/style.css`**
 Cari bagian `:root` di baris atas:
 ```css
 :root {
-  --hijau: #1F4D3A;        /* Warna hijau utama (header, footer, border kartu) */
-  --kunyit: #E8A317;       /* Warna kuning aksen (lencana / nomor urut) */
-  --krem: #FBF4E6;         /* Warna latar belakang halaman */
-  --pasir: #EFE3C8;        /* Warna placeholder & garis batas */
-  --tinta: #2B2118;        /* Warna teks utama */
-  --tinta-lembut: #5E4F3F; /* Warna teks sekunder (deskripsi) */
-  --wa: #1A7F37;           /* Warna hijau tombol WhatsApp */
+  --hijau: #1E4C3B;          /* Hijau logo: judul, garis kartu, tombol utama, footer */
+  --hijau-tua: #153829;      /* Hijau lebih gelap saat tombol di-hover */
+  --kunyit: #E8A316;         /* Emas logo: lencana, lingkaran nomor, garis aksen header */
+  --kunyit-terang: #F3BC45;  /* Emas terang khusus teks di atas latar hijau (footer) */
+  --krem: #FBF4E6;           /* Warna latar belakang halaman */
+  --pasir: #EFE3C8;          /* Warna placeholder foto & garis batas */
+  --permukaan: #FFFFFF;      /* Latar header (tempat logo) dan kartu */
+  --tinta: #17281F;          /* Warna teks utama */
+  --tinta-lembut: #50604F;   /* Warna teks sekunder (deskripsi) */
+  --wa: #23784A;             /* Hijau tombol WhatsApp */
+  --wa-tua: #1A5E39;         /* Hijau tombol WhatsApp saat di-hover */
 }
 ```
-Ubah kode hex warna (`#...`) sesuai dengan tema yang diinginkan. Perubahan warna di bagian `:root` ini otomatis mengubah seluruh elemen terkait di website.
+Ubah kode hex (`#...`) sesuai tema yang diinginkan. Perubahan di bagian `:root` ini otomatis mengubah seluruh elemen terkait di website.
+> **Catatan Logo**: Teks logo berwarna hijau tua, jadi header sengaja berlatar putih (`--permukaan`). Jika header diberi latar gelap, logo tidak akan terbaca.
+
+### C2. Mengganti Logo
+Timpa file **`img/logo.webp`** dengan logo baru (disarankan lebar sekitar 480 piksel, latar transparan, format WebP/PNG). Jika nama atau rasio ukuran berubah, sesuaikan atribut `width`, `height`, dan `src` pada tag `<img class="logo">` di `index.html`, serta tinggi logo (`.merek img.logo`) di `css/style.css`. Ikon tab browser ada di `img/favicon.png`.
 
 ---
 

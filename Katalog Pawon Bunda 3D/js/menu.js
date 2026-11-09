@@ -19,7 +19,7 @@ const elGrid = document.getElementById("grid-menu") || document.getElementById("
 if (elGrid) {
   elGrid.innerHTML =
     MENU.map(kartu).join("") +
-    '<div class="kartu kartu-khusus"><h3>Tidak ada menu yang cocok?</h3><p>Coba tanyakan mungkin kita bisa bantu.</p>' +
+    '<div class="kartu kartu-khusus"><h3>Ingin menu yang lain?</h3><p>Coba tanyakan kepada kami.</p>' +
     '<a class="btn btn-wa" href="' + waLink() + '" target="_blank" rel="noopener">Chat WhatsApp</a></div>';
 }
 

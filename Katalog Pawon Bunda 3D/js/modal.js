@@ -1,6 +1,21 @@
 // Mengatur pembuka dan penutup pop-up (Modal)
 const dlg = document.getElementById("dlg");
 
+// Fungsi pengunci scroll background saat modal aktif
+function kunciScroll(kunci) {
+  if (kunci) {
+    document.body.classList.add("modal-terbuka");
+  } else {
+    document.body.classList.remove("modal-terbuka");
+  }
+}
+
+// Pastikan scroll background selalu pulih saat dialog ditutup (ESC, API, atau klik)
+if (dlg) {
+  dlg.addEventListener("close", () => kunciScroll(false));
+  dlg.addEventListener("cancel", () => kunciScroll(false));
+}
+
 function fotoInfo(m) {
   if (m.foto) return '<img class="foto-info" src="' + esc(m.foto) + '" alt="Foto ' + esc(m.nama) + '">';
   return '<div class="foto foto-info" role="img" aria-label="Tempat foto ' + esc(m.nama) + '">[Foto ' + esc(m.nama) + ']</div>';
@@ -8,6 +23,7 @@ function fotoInfo(m) {
 
 function bukaInfo(id) {
   const m = MENU.find(x => x.id === id);
+  if (!m) return;
   const hias = m.tipe === "hias";
   document.getElementById("dlg-judul").textContent = m.nama;
   const lencana = '<span class="kuning">Mulai dari ' + esc(m.mulai) + '</span>' +
@@ -27,14 +43,20 @@ function bukaInfo(id) {
     (m.paket ? tabel(m.paket) : '') + (m.pilihan ? '<p class="pilihan">' + esc(m.pilihan) + '</p>' : '');
   document.getElementById("dlg-wa").href = waLink();
   dlg.showModal();
+  kunciScroll(true);
 }
 
 // Menangani klik tombol "Informasi Produk" dan penutup pop-up
 document.addEventListener("click", e => {
   const b = e.target.closest("[data-info]");
-  if (b) bukaInfo(b.dataset.info);
-  else if (e.target === dlg) dlg.close();
+  if (b) {
+    bukaInfo(b.dataset.info);
+  } else if (e.target === dlg) {
+    dlg.close();
+  }
 });
 
-document.getElementById("dlg-tutup").addEventListener("click", () => dlg.close());
-
+const btnTutupDlg = document.getElementById("dlg-tutup");
+if (btnTutupDlg) {
+  btnTutupDlg.addEventListener("click", () => dlg.close());
+}

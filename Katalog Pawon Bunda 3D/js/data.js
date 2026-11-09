@@ -11,7 +11,8 @@ const NOMOR_WA = "6287758311825";
 const MENU = [
   {
     id: "nasi-kotak", nama: "Nasi Kotak", tipe: "makanan", deskripsi: "Paket lengkap untuk acara.", mulai: "15K/Box", min: "10", po: "PO H-4",
-    deskripsiTambahan: "Ubah deskripsi tambahan"
+    deskripsiTambahan:
+      "Nasi kotak dengan pilihan lauk yang beraneka\nAyam Ungkep, Acar Kuning, Mie Goreng, Sayur Oseng, Telur Rebus"
   },
 
   {
