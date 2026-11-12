@@ -381,14 +381,30 @@ h3 {
   transition: var(--transisi);
 }
 
+img.foto {
+  padding: 0;
+  object-fit: cover;
+  display: block;
+  cursor: pointer;
+}
+
 .hero .foto {
-  aspect-ratio: 4/3;
-  border: 2px dashed rgba(29, 75, 57, 0.35);
-  background-color: var(--hijau-permukaan);
-  color: var(--hijau);
-  font-weight: 600;
-  font-size: 15px;
-  box-shadow: var(--bayangan-kartu);
+  width: 100%;
+  max-width: 480px;
+  aspect-ratio: 1 / 1;
+  border-radius: var(--radius-lg);
+  border: 1px solid var(--pasir);
+  background-color: var(--permukaan);
+  object-fit: cover;
+  box-shadow: var(--bayangan-angkat);
+  transition: var(--transisi);
+  display: block;
+  margin: 0 auto;
+}
+
+.hero img.foto:hover {
+  transform: translateY(-3px) scale(1.01);
+  box-shadow: var(--bayangan-modal);
 }
 
 /* ==========================================================================
@@ -482,10 +498,13 @@ section {
 }
 
 .kartu .foto {
-  height: 180px;
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  height: auto;
   border-radius: var(--radius-md);
   background-color: var(--pasir-terang);
   border: 1px solid var(--pasir);
+  object-fit: cover;
 }
 
 .kartu h3 {
@@ -567,7 +586,9 @@ section {
 }
 
 .grid-hias .kartu .foto {
-  height: 240px;
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  height: auto;
 }
 
 h3.kecil,
@@ -582,23 +603,49 @@ h3.kecil,
 .galeri {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
-  gap: 14px;
-  margin-top: 12px;
+  gap: 16px;
+  margin-top: 14px;
 }
 
-.galeri .foto {
-  height: 130px;
+.galeri-item {
+  padding: 0;
+  border: 0;
+  background: transparent;
+  cursor: pointer;
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  display: block;
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  position: relative;
+  transition: var(--transisi);
+  outline: none;
+}
+
+.galeri-item:focus-visible {
+  outline: 3px solid var(--kunyit);
+  outline-offset: 3px;
+}
+
+.galeri .foto,
+.galeri-item img.foto {
+  width: 100%;
+  height: 100%;
+  aspect-ratio: 1 / 1;
+  object-fit: cover;
   background-color: var(--permukaan);
   border: 1px solid var(--pasir);
   border-radius: var(--radius-md);
   box-shadow: var(--bayangan-sm);
   transition: var(--transisi);
+  display: block;
 }
 
+.galeri-item:hover .foto,
 .galeri .foto:hover {
-  transform: translateY(-2px);
+  transform: translateY(-3px) scale(1.02);
   border-color: var(--kunyit);
-  box-shadow: var(--bayangan-kartu);
+  box-shadow: var(--bayangan-angkat);
 }
 
 /* ==========================================================================
@@ -749,13 +796,27 @@ dialog::backdrop {
 }
 
 .foto-info {
-  display: flex;
   width: 100%;
-  height: 220px;
+  aspect-ratio: 1 / 1;
+  height: auto;
   object-fit: cover;
   border-radius: var(--radius-md);
   background-color: var(--pasir-terang);
   border: 1px solid var(--pasir);
+}
+
+img.foto-info {
+  padding: 0;
+  display: block;
+  cursor: pointer;
+}
+
+div.foto-info {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 12px;
 }
 
 .paket {
@@ -786,6 +847,64 @@ dialog::backdrop {
   margin: 6px 0 0;
   color: var(--tinta-lembut);
   font-style: italic;
+}
+
+/* Modal Pop-up Pratinjau Foto Karya Lebih Besar (Hanya Foto Murni Tanpa Teks) */
+.dlg-foto-modal {
+  border: 0;
+  border-radius: var(--radius-lg);
+  padding: 0;
+  max-width: 540px;
+  width: calc(100% - 32px);
+  max-height: calc(100% - 40px);
+  color: var(--tinta);
+  background-color: var(--permukaan);
+  box-shadow: var(--bayangan-modal);
+  overflow: hidden;
+  margin: auto;
+}
+
+.dlg-foto-badan {
+  padding: 16px;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+}
+
+.dlg-foto-tutup {
+  position: absolute;
+  top: 24px;
+  right: 24px;
+  z-index: 10;
+  background-color: rgba(255, 255, 255, 0.9);
+  color: var(--tinta);
+  box-shadow: var(--bayangan-sm);
+}
+
+.dlg-foto-tutup:hover {
+  background-color: #FFFFFF;
+  color: var(--hijau);
+}
+
+.dlg-foto-wadah {
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  background-color: var(--pasir-terang);
+  border: 1px solid var(--pasir);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: var(--bayangan-sm);
+}
+
+.dlg-foto-wadah img {
+  width: 100%;
+  height: 100%;
+  aspect-ratio: 1 / 1;
+  object-fit: cover;
+  display: block;
 }
 
 /* ==========================================================================
@@ -1046,9 +1165,17 @@ dialog::backdrop {
 
   .kartu.makanan .foto,
   .kartu.hias-kartu .foto {
+    width: 100px;
     height: 100px;
+    aspect-ratio: 1 / 1;
+    object-fit: cover;
     grid-row: 1/4;
     font-size: 11px;
+    padding: 0;
+  }
+
+  .kartu.makanan div.foto,
+  .kartu.hias-kartu div.foto {
     padding: 6px;
   }
 
@@ -1074,7 +1201,9 @@ dialog::backdrop {
   }
 
   .grid-hias .kartu .foto {
-    height: 180px;
+    width: 100%;
+    aspect-ratio: 1 / 1;
+    height: auto;
   }
 
   .galeri {

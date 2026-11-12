@@ -1,5 +1,6 @@
 // Mengatur pembuka dan penutup pop-up (Modal)
 const dlg = document.getElementById("dlg");
+const dlgFoto = document.getElementById("dlg-foto");
 
 // Fungsi pengunci scroll background saat modal aktif
 function kunciScroll(kunci) {
@@ -15,9 +16,13 @@ if (dlg) {
   dlg.addEventListener("close", () => kunciScroll(false));
   dlg.addEventListener("cancel", () => kunciScroll(false));
 }
+if (dlgFoto) {
+  dlgFoto.addEventListener("close", () => kunciScroll(false));
+  dlgFoto.addEventListener("cancel", () => kunciScroll(false));
+}
 
 function fotoInfo(m) {
-  if (m.foto) return '<img class="foto-info" src="' + esc(m.foto) + '" alt="Foto ' + esc(m.nama) + '">';
+  if (m.foto) return '<img class="foto-info" src="' + esc(m.foto) + '" alt="Foto ' + esc(m.nama) + '" width="600" height="600" loading="lazy" data-foto-popup="' + esc(m.foto) + '" data-caption="' + esc(m.nama) + '" role="button" tabindex="0" title="Klik untuk memperbesar foto ' + esc(m.nama) + '">';
   return '<div class="foto foto-info" role="img" aria-label="Tempat foto ' + esc(m.nama) + '">[Foto ' + esc(m.nama) + ']</div>';
 }
 
@@ -46,17 +51,39 @@ function bukaInfo(id) {
   kunciScroll(true);
 }
 
-// Menangani klik tombol "Informasi Produk" dan penutup pop-up
+// Fungsi membuka pop-up pratinjau gambar karya yang lebih besar (hanya foto)
+function bukaFoto(src, alt) {
+  if (!dlgFoto) return;
+  const imgEl = document.getElementById("dlg-foto-img");
+  if (imgEl) {
+    imgEl.src = src;
+    imgEl.alt = alt || "Foto karya Pawon Bunda 3D";
+  }
+  dlgFoto.showModal();
+  kunciScroll(true);
+}
+
+// Menangani klik tombol "Informasi Produk", foto karya, dan penutup pop-up
 document.addEventListener("click", e => {
   const b = e.target.closest("[data-info]");
+  const fotoBtn = e.target.closest("[data-foto-popup]");
   if (b) {
     bukaInfo(b.dataset.info);
+  } else if (fotoBtn) {
+    bukaFoto(fotoBtn.dataset.fotoPopup, fotoBtn.dataset.caption);
   } else if (e.target === dlg) {
     dlg.close();
+  } else if (dlgFoto && e.target === dlgFoto) {
+    dlgFoto.close();
   }
 });
 
 const btnTutupDlg = document.getElementById("dlg-tutup");
 if (btnTutupDlg) {
   btnTutupDlg.addEventListener("click", () => dlg.close());
+}
+
+const btnTutupDlgFoto = document.getElementById("dlg-foto-tutup");
+if (btnTutupDlgFoto && dlgFoto) {
+  btnTutupDlgFoto.addEventListener("click", () => dlgFoto.close());
 }

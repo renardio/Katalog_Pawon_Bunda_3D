@@ -1,3 +1,11 @@
+// Fungsi pembuat elemen foto untuk setiap kartu menu
+function fotoKartu(m) {
+  if (m.foto) {
+    return '<img class="foto" src="' + esc(m.foto) + '" alt="Foto ' + esc(m.nama) + '" width="600" height="600" loading="lazy" data-foto-popup="' + esc(m.foto) + '" data-caption="' + esc(m.nama) + '" role="button" tabindex="0" title="Klik untuk memperbesar foto ' + esc(m.nama) + '">';
+  }
+  return '<div class="foto" role="img" aria-label="Tempat foto ' + esc(m.nama) + '">[Foto ' + esc(m.nama) + ']</div>';
+}
+
 // Fungsi pembuat elemen HTML untuk setiap kartu menu
 function kartu(m) {
   const hias = m.tipe === "hias";
@@ -7,7 +15,7 @@ function kartu(m) {
     (m.ukuran ? '<span>Ukuran ' + esc(m.ukuran) + '</span>' : '') +
     (m.custom ? '<span>Bisa custom</span>' : '');
   return '<article class="kartu ' + (hias ? "hias-kartu" : "makanan") + '" id="' + m.id + '">' +
-    '<div class="foto" role="img" aria-label="Tempat foto ' + esc(m.nama) + '">[Foto ' + esc(m.nama) + ']</div>' +
+    fotoKartu(m) +
     '<div><h3>' + esc(m.nama) + '</h3><p>' + esc(m.deskripsi) + '</p></div>' +
     '<div class="lencana">' + lencana + '</div>' +
     '<div class="aksi"><button type="button" class="btn btn-garis" data-info="' + m.id + '">Informasi produk</button><a class="btn btn-wa" href="' + waLink() + '" target="_blank" rel="noopener">' + (hias ? "Tanya via WhatsApp" : "Tanya via WhatsApp") + '</a></div>' +
